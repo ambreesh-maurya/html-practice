@@ -1,30 +1,83 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Understand the basic structure of an HTML page. Learn what goes inside head and body tags.">
-  <meta name="keywords" content="html page structure, basic html layout, head and body tags, html tutorial for beginners">
-  <meta name="author" content="Ambreesh Maurya">
-  <title>HTML Page Structure | Learn HTML</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Understand the building blocks of a typical HTML document with simple structure examples for beginners." />
+    <meta name="keywords" content="HTML structure, HTML layout, beginner HTML page, HTML tutorial Ambreesh Maurya" />
+    <meta name="author" content="Ambreesh Maurya" />
+    <title>Basic HTML Page Structure Explained</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header, footer {
+            background-color: #222;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 0.5rem 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 2rem;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #111;
+        }
+    </style>
 </head>
 <body>
-  <h1>Basic HTML Page Structure</h1>
-  <p>Every HTML document follows a common structure. Here's what it looks like:</p>
-
-  <pre>
-    &lt;!DOCTYPE html&gt;
-    &lt;html&gt;
-      &lt;head&gt;
-        &lt;title&gt;Page Title&lt;/title&gt;
-      &lt;/head&gt;
-      &lt;body&gt;
-        &lt;h1&gt;Hello, world!&lt;/h1&gt;
-      &lt;/body&gt;
-    &lt;/html&gt;
-  </pre>
-
-  <p>This format ensures the browser reads and displays your webpage correctly.</p>
-
-  <p>Written by <strong>Ambreesh Maurya</strong> – Helping you learn HTML step-by-step as a Shopify Developer.</p>
+    <header>
+        <h1>HTML for Beginners</h1>
+        <p>By Ambreesh Maurya – Freelance Shopify Developer</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="html-structure.html">HTML Structure</a>
+        <a href="html-tags.html">HTML Tags</a>
+    </nav>
+    <main>
+        
+        <h2>HTML Page Structure</h2>
+        <p>An HTML file is made up of elements enclosed in tags. These tags help define how your webpage looks and works.</p>
+        <h3>Basic HTML Template:</h3>
+        <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;This is a heading&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+        <p>This basic structure is used in every webpage. Understanding this will help you write more organized and readable code.</p>
+    
+    </main>
+    <footer>
+        <p>© 2025 Ambreesh Maurya | Shopify Developer</p>
+    </footer>
 </body>
 </html>
