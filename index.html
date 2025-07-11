@@ -22,6 +22,12 @@
       padding: 1rem;
       text-align: center;
     }
+    header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
     nav {
       background-color: #444;
       padding: 0.5rem 0;
@@ -50,7 +56,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3B6WH5T69Y"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-3B6WH5T69Y');
   </script>
@@ -59,12 +65,14 @@
 <body>
 
   <header>
+    <!-- Update path below if your image is in a folder -->
+    <img src="images/ambreesh.jpg" alt="Ambreesh Maurya">
     <h1>HTML for Beginners</h1>
     <p>By Ambreesh Maurya – Freelance Shopify Developer</p>
   </header>
 
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="html-structure.html">HTML Structure</a>
     <a href="html-tags.html">HTML Tags</a>
     <a href="contact.html">Contact</a>
