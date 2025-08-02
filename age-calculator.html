@@ -8,64 +8,230 @@
   <meta name="keywords" content="age calculator, calculate age, date of birth to age, online age tool, DOB calculator">
   <meta name="author" content="Ambreesh Maurya">
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
+    * {
+      box-sizing: border-box;
       margin: 0;
-      padding: 40px;
-      text-align: center;
+      padding: 0;
     }
-    h1 {
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #acb6e5);
+      min-height: 100vh;
+      padding-top: 80px;
+    }
+
+    /* Navbar styles */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 600;
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
       color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
     }
-    .calculator {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      display: inline-block;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    nav ul li a:hover {
+      color: #4CAF50;
     }
-    input[type="date"] {
-      padding: 10px;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background: #4CAF50;
-      color: white;
-      border: none;
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
       cursor: pointer;
-      border-radius: 5px;
     }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #333;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #ffffff;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* Calculator styles */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 15px;
+    }
+
+    .calculator-container {
+      background-color: #ffffff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #333333;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    p {
+      color: #666666;
+      margin-bottom: 25px;
+      font-size: 15px;
+    }
+
+    input[type="date"] {
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      transition: border 0.3s;
+    }
+
+    input[type="date"]:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
     button:hover {
-      background: #45a049;
+      background-color: #45a049;
     }
+
     .result {
-      margin-top: 20px;
+      margin-top: 25px;
       font-size: 18px;
-      color: #444;
+      color: #333;
+      min-height: 24px;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      .result {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Age Calculator</h1>
-  <p>Enter your date of birth to calculate your age:</p>
 
-  <div class="calculator">
-    <input type="date" id="dob" />
-    <br />
-    <button onclick="calculateAge()">Calculate Age</button>
-    <div class="result" id="result"></div>
+  <!-- Header with navigation -->
+  <header>
+    <div class="navbar">
+      <a href="#" class="logo">Age Calculator</a>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <ul id="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Tools</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main calculator section -->
+  <div class="container">
+    <div class="calculator-container">
+      <h1>Age Calculator</h1>
+      <p>Enter your date of birth below:</p>
+
+      <input type="date" id="dob" />
+      <button onclick="calculateAge()">Calculate Age</button>
+
+      <div class="result" id="result"></div>
+    </div>
   </div>
 
+  <!-- Scripts -->
   <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('active');
+    }
+
     function calculateAge() {
-      const dob = new Date(document.getElementById("dob").value);
+      const dobInput = document.getElementById("dob");
+      const result = document.getElementById("result");
+
+      const dob = new Date(dobInput.value);
       if (!dob.getTime()) {
-        document.getElementById("result").textContent = "Please select a valid date.";
+        result.innerHTML = "Please select a valid date.";
         return;
       }
 
@@ -76,15 +242,16 @@
 
       if (days < 0) {
         months--;
-        days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+        const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        days += prevMonth.getDate();
       }
+
       if (months < 0) {
         years--;
         months += 12;
       }
 
-      document.getElementById("result").innerHTML =
-        `Your Age is <strong>${years} years, ${months} months, and ${days} days</strong>.`;
+      result.innerHTML = `You are <strong>${years} years</strong>, <strong>${months} months</strong>, and <strong>${days} days</strong> old.`;
     }
   </script>
 </body>
